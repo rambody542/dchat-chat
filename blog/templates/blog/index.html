@@ -38,6 +38,14 @@
         $('#textInput').val("");
 
         $('#chatbot').append(userHTML);
+
+        $.get('/blog/getResponse', {userMessage:userText}).done(function(data){
+
+          let returnedMessage = "<p class='botText'>Chatbot : <span>"+ data +"</span></p>";
+            $("#chatbot").append(returnedMessage);
+
+        })
+
     }
 
 
